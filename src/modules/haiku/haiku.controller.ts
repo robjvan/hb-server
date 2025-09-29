@@ -9,7 +9,7 @@ export class HaikuController {
   constructor(private readonly haikuService: HaikuService) {}
 
   @ApiOperation({
-    description: 'Creates a new Haiku record from the given input term.',
+    summary: 'Creates a new Haiku record from the given input term',
   })
   @ApiParam({ name: 'input', description: '', required: false })
   @ApiResponse({
@@ -22,11 +22,11 @@ export class HaikuController {
     return this.haikuService.generateHaiku(req, input ?? '');
   }
 
-  @ApiOperation({ description: 'Retrieves all available haiku records.' })
+  @ApiOperation({ summary: 'Retrieves all available haiku records' })
   @ApiResponse({
     status: 200,
     description: 'Records retrieved successfully.',
-    type: () => [Haiku],
+    type: Haiku,
     isArray: true,
   })
   @Get()
@@ -34,11 +34,23 @@ export class HaikuController {
     return this.haikuService.getAllHaikus();
   }
 
+  @ApiOperation({ summary: 'Retrieves one haiku record by ID' })
+  @ApiResponse({
+    status: 200,
+    description: 'Record retrieved successfully.',
+    type: Haiku,
+  })
   @Get('/:id')
   getHaikuById(@Param('id') id: number) {
     return this.haikuService.getHaikuById(id);
   }
 
+  @ApiOperation({ summary: 'Retrieves one random haiku record' })
+  @ApiResponse({
+    status: 200,
+    description: 'Record retrieved successfully.',
+    type: Haiku,
+  })
   @Get('/random')
   getRandomHaiku() {
     return this.haikuService.getRandomHaiku();
