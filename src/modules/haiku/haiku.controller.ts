@@ -19,7 +19,7 @@ export class HaikuController {
   })
   @Put('generate/:input')
   generateNewHaiku(@Req() req: express.Request, @Param() input?: string) {
-    return this.haikuService.generateHaiku(req, input ?? '');
+    return this.haikuService.generateHaiku(req, input);
   }
 
   @ApiOperation({ summary: 'Retrieves all available haiku records' })

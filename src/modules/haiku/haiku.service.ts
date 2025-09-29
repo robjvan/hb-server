@@ -39,7 +39,7 @@ export class HaikuService {
    */
   async generateHaiku(
     req: express.Request,
-    input: string,
+    input?: string,
   ): Promise<Haiku | undefined> {
     try {
       console.log(req, input);
