@@ -16,6 +16,9 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe()); // Set the config options
   app.enableCors();
 
+  // Let Express trust proxy headers (needed when behind Coolify/NGINX/Cloudflare)
+  app.getHttpAdapter().getInstance().set('trust proxy', true);
+
   // Set Swagger configuration
   const config = new DocumentBuilder()
     .setTitle('HaikuBot API')
