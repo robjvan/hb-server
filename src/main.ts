@@ -18,20 +18,11 @@ async function bootstrap() {
 
   // Set Swagger configuration
   const config = new DocumentBuilder()
-    .setTitle('Register Backend Server')
-    .setDescription('Register backend API description')
-    .setVersion('1.0')
-    .addBearerAuth(
-      {
-        type: 'http',
-        scheme: 'bearer',
-        bearerFormat: 'JWT',
-        name: 'Authorization',
-        description: 'Enter JWT token',
-        in: 'Header',
-      },
-      'access-token',
+    .setTitle('HaikuBot API')
+    .setDescription(
+      'NestJS backend for HaikuBot, featuring OpenAI-powered haiku generation, PostgreSQL persistence, structured logging, and RESTful endpoints for generation and retrieval.',
     )
+    .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
