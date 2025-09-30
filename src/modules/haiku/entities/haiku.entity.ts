@@ -40,7 +40,7 @@ export class Haiku {
     example: 'server',
   })
   @Column('text')
-  input: string;
+  theme: string;
 
   @ApiProperty({
     description: 'Creation date of the haiku.',
