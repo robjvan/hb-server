@@ -72,7 +72,7 @@ export class HaikuService {
         content = `Generate an original traditionally-formatted 3-line 5-7-5 Haiku with the theme of ${theme}.  Do NOT use the template data or re-use previously generated poems as a generated poem, but ALWAYS return the poem in the given format from the template without a trailing comma.`;
       } else {
         content =
-          'Generate a traditionally-formatted 3-line 5-7-5 Haiku with a random theme';
+          'Generate a traditionally-formatted 3-line 5-7-5 Haiku with a pleasant zen theme.   Do NOT use the template data or re-use previously generated poems as a generated poem, but ALWAYS return the poem in the given format from the template without a trailing comma.';
       }
 
       // Request a haiku from OpenAI
